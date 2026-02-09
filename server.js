@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
@@ -7,7 +8,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors());
-app.use(express.static('public')); // Serves your frontend files
+app.use(express.static(path.join(__dirname, 'public'))); // Serves your frontend files
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = process.env.TMDB_API_KEY;
